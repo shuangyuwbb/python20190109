@@ -1,0 +1,24 @@
+{% extends 'common/base.html' %}
+{% block title %}
+支付页面
+{% endblock %}
+
+{% block page_content %}
+    <div class="content" style="margin:50px 100px;width: 300px;display: inline-block">
+        <img src="{{ content.goods_pics }}" alt="" style="width: 250px">
+        <span style="font-size: 20px;display: block">{{ content.goods_dec}}</span>
+        <span style="color: red;font-size: 25px">{{ content.goods_price}}￥</span>
+    </div>    <div class="cart_wrap" style="display: inline-block;width: 100px">
+    <img style="width: 160px;margin-left: 17px;" src="{{ url_for('static',filename="img/pay.png") }}">
+        <div style="border-radius: 20px;overflow: hidden; background-color: #f47b17;color: red;width: 200px;height: 40px;line-height: 40px;text-align: center"><a class="add_cart" style=" text-decoration: none;display: inline-block;width: 100%;line-height: 100%" href="{{url_for('home.addCart',id=content.id)}}">修改地址</a></div>
+
+    </div>
+{% endblock %}
+
+{% block scripts %}
+     <style>
+        body{
+            background-color: #cccccc;
+        }
+     </style>
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends 'bootstrap/base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block title %}{% endblock %}
+
+{% block navbar %}
+    <nav class="navbar navbar-inverse" style="border-radius: 0px">
+        <div class="container">
+            <div class="container-fluid">
+
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{{ url_for('home.index') }}">首页</a>
+                </div>
+
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="{{ url_for('home.addCart',id=1)}}">购物车</a></li>
+                        <li><a href="{{ url_for('home.collection',id=1)}}">我的收藏</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        {% if current_user.is_authenticated %}
+                        <li><a href="{{ url_for('home.login') }}">欢迎{{ current_user.username }}</a></li>
+                        <li><a href="{{ url_for('home.logout') }}">注销</a></li>
+                        {% else %}
+                            <li><a href="{{ url_for('home.login') }}">登录</a></li>
+                        <li><a href="{{ url_for('home.register') }}">注册</a></li>
+                        {% endif %}
+<ul class="nav navbar-nav navbar-right">
+                         <li><a href="{{ url_for('admin.index') }}">管理员登录</a></li>
+                    </ul>
+                    </ul>
+                     <ul class="nav navbar-nav navbar-right" style="margin-top: 13px;border-radius: 15px;overflow: hidden;height: 25px;width: 222px">
+                         <form action="/search/">
+                            <li style="float: left"><input type="search" name="keyword"></li>
+
+                            <li style="float: left"><button type="submit">搜索</button></li>
+                        </form>
+                    </ul>
+                    </ul>
+
+                    <ul class="nav navbar-nav">
+                        <li><a href="{{ url_for('home.classfy',keyword="女装精品") }}">女装精品</a></li>
+                        <li><a href="{{ url_for('home.classfy',keyword="手机数码") }}">手机数码</a></li>
+                        <li><a href="{{ url_for('home.classfy',keyword="家具家电") }}">家具家电</a></li>
+                        <li><a href="{{ url_for('home.classfy',keyword="鞋品箱包") }}">鞋品箱包</a></li>
+                        <li><a href="{{ url_for('home.classfy',keyword="户外运动") }}">户外运动</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+{% endblock %}
+
+
+
+{% block content %}
+    <div class="container">
+        {% for message in get_flashed_messages() %}
+            <div class="alert alert-warning alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <strong>通知!</strong> {{ message }}
+            </div>
+        {% endfor %}
+
+        {#页面内容#}
+        {% block page_content %}默认内容{% endblock %}
+    </div>
+{% endblock %}
+
+
+{% block scripts %}
+    <script>
+    handle = function(){
+
+    }
+
+    </script>
+{% endblock %}

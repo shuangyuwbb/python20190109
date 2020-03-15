@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="author" content="Kodinger">
+	<title>后台登陆</title>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='bootstrap/css/bootstrap.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/my-login.css')}}">
+</head>
+<body class="my-login-page" style="background-color:#5c5c5c;">
+	<section class="h-100">
+		<div class="container h-100">
+			<div class="row justify-content-md-center h-100">
+				<div class="card-wrapper">
+					<div class="brand">
+						<img src="{{url_for('static',filename='img/logo.jpg')}}">
+					</div>
+					<div class="card fat" style="margin: 0 auto">
+						<div class="card-body" style="background-color: RGBA(255 255 255 0.5)" >
+							<h4 class="card-title">Login</h4>
+							<form action="/admin/login/" method="post">
+							 
+								<div class="form-group">
+									<label for="username">account</label>
+									<input id="email" type="text" class="form-control" name="username"  required autofocus>
+								</div>
+
+								<div class="form-group">
+									<label for="password">Password
+										<a href="forgot.html" class="float-right">
+											Forgot Password?
+										</a>
+									</label>
+									<input id="password" type="password" class="form-control" name="password" required data-eye>
+								</div>
+
+								<div class="form-group">
+									<label>
+										<input type="checkbox" name="remember"> Remember Me
+									</label>
+								</div>
+
+								<div class="form-group no-margin">
+									<button type="submit" class="btn btn-primary btn-block">
+										Login
+									</button>
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="footer">
+						Copyright &copy; we GamgPlus 2020 - forever <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">超级商城</a> - Collect from <a href="http://127.0.0.2/" title="" target="_blank">cjsc商城</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="{{url_for('static',filename='js/jquery.min.js')}}"></script>
+	<script src="{{url_for('static',filename='bootstrap/js/bootstrap.min.js')}}"></script>
+	<script src="{{url_for('static',filename='js/my-login.js')}}"></script>
+</body>
+</html>

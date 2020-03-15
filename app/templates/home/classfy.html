@@ -1,0 +1,21 @@
+{% extends 'common/base.html' %}
+{% block title %}
+商城首页
+{% endblock %}
+
+{% block page_content %}
+    <div class="content_wrap" style="width: 100%">
+    {% for good in content %}
+        <div class="contents" style="width: 270px;display: inline-block">
+            <a href="{{ url_for('home.detail',id=good.id) }}" style="text-decoration: none">
+                <img style="width: 220px" src="{{ good.goods_pics }}">
+                <p style="display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;">{{good.goods_dec}}</p>
+                <p style="color: red">{{good.goods_price}}￥</p>
+            </a>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

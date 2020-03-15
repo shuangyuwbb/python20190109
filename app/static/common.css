@@ -1,0 +1,21 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+}
+.box1{
+    background-color: #cccccc;
+    width: 600px;
+    height: 400px;
+}
+.container{
+    margin: 0 auto;
+}
+label{
+    font-size: 16px;
+}
+input{
+    display: inline-block;
+    width: 32px;
+    height: 100px;
+}

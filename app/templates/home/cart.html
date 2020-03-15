@@ -1,0 +1,57 @@
+{% extends 'common/base.html' %}
+{% block title %}
+购物车
+{% endblock %}
+
+{% block page_content %}
+ <div class="content_wrap">
+        {% for goods in content %}
+            <a href="#">
+                <ul class="wbb1">
+                    <li class="wbb" style="list-style: none"><label class="wbb0"><input type="radio"/></label> </li>
+                    <li class="wbb" style="list-style: none"><img style="width: 100px;height: 100px" src="{{ goods.goods_pics }}"></li>
+                    <li class="wbb" style="list-style: none"><span style=" overflow: hidden;line-height: 100px;font-size: 12px;width: 150px">{{ goods.goods_dec }}</span></li>
+                    <li class="wbb" style="list-style: none"><span style="font-size: 16px;color: #ff4617;line-height: 100px;">{{  goods.goods_price}}￥</span></li>
+                    <li class="wbb2" style="list-style: none"><a style="text-decoration: none;color: red" href="{{ url_for('home.buy',id=goods.id) }}">立即购买</a></li>
+                    <li class="wbb2" style="list-style: none"><a style="text-decoration: none;color: red" href="{{ url_for('home.del_cart',id=goods.id) }}">移除</a></li>
+                    <li class="wbb2" style="list-style: none"><span class="wbb_add">-</span><span class="wbb_sum">1</span><span class="wbb_add">+</span></li>
+                </ul>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+
+{% block scripts %}
+    <style>
+
+        .wbb1{
+            display: block;
+            height: 130px;
+        }
+        .wbb0{
+            margin-top: 40px;
+        }
+
+        .wbb{
+            float: left;
+            margin-left: 50px;
+            line-height: 100%;
+        }
+    .wbb2{
+        float: right;
+        padding: 30px;
+    }
+    .wbb_add{
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        text-align: center;
+        border: 1px solid #ccc;
+    }
+    .wbb_sum{
+        font-size: 16px;
+        padding: 10px;
+    }
+    </style>
+{% endblock %}

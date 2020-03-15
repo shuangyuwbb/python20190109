@@ -1,0 +1,24 @@
+{% extends 'common/base.html' %}
+{% block title %}
+    主页
+{% endblock %}
+
+
+{% block page_content %}
+{% for good in goods %}
+            <div class="alert alert-warning alert-dismissible" role="alert" style="display: inline-block;width: 260px">
+                <a href="{{ url_for('home.detail',id = good.id) }}" style="text-decoration: none">
+                    <img src="{{ good.goods_pics }}">
+                    <p style="display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        -webkit-box-orient: vertical;">{{ good.goods_dec }}</p>
+                    <p style="color: red;font-size: 25px">{{ good.goods_price }}￥</p>
+                </a>
+            </div>
+        {% endfor %}
+
+{% endblock %}
+
+{% block scripts %}
+<h1>地址</h1>
+{% endblock %}

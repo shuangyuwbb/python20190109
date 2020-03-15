@@ -1,0 +1,19 @@
+{% extends 'common/base.html' %}
+{% block title %}
+详情页面
+{% endblock %}
+
+{% block page_content %}
+    <div class="content" style="margin:50px 100px;width: 300px;display: inline-block">
+        <img src="{{ content.goods_pics }}" alt="" style="width: 250px">
+        <span style="font-size: 20px;display: block">{{ content.goods_dec}}</span>
+        <span style="color: red;font-size: 25px">{{ content.goods_price}}￥</span>
+    </div>    <div class="cart_wrap" style="display: inline-block;width: 100px">
+        <button style=" background-color: #f47b17;color: red;display: inline-block;width: 100px;height: 40px;line-height: 40px;text-align: center"><a class="add_cart" style="text-decoration: none;display: inline-block;width: 100%;line-height: 100%" href="{{url_for('home.addCart',id=content.id)}}">加入购物车</a></button>
+        <button style="margin-top:20px ;color: red;display: inline-block;width: 100px;height: 40px;line-height: 40px;text-align: center"><a style="text-decoration: none;display: inline-block;width: 100%;line-height: 100%" href="{{ url_for('home.collection',id=content.id)}}"> 收藏</a></button>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}
